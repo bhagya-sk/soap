@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://repository.student.reactiveworks.com/"
+	xmlns:tns="http://repository.student.reactiveworks.com/"
+	elementFormDefault="qualified">
+
+	<element name="getStudents">
+		<complexType>
+			<sequence />
+		</complexType>
+	</element>
+
+	<element name="getStudentsResponse">
+		<complexType>
+			<sequence>
+				<element maxOccurs="unbounded" minOccurs="0" name="response"
+					type="tns:student"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="getStudent">
+		<complexType>
+			<sequence>
+				<element name="arg1" type="int"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="getStudentResponse">
+		<complexType>
+			<sequence>
+				<element maxOccurs="1" minOccurs="0" name="response"
+					type="tns:student"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="deleteStudent">
+		<complexType>
+			<sequence>
+				<element name="arg1" type="int"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="deleteStudentResponse">
+		<complexType>
+			<sequence />
+		</complexType>
+	</element>
+
+	<complexType name="student">
+		<sequence>
+			<element name="name" type="string"></element>
+			<element name="rollNo" type="int"></element>
+			<element name="percentage" type="double" />
+		</sequence>
+	</complexType>
+
+	<element name="DaoOperationFailureException"
+		type="tns:DaoOperationFailureException" />
+	<complexType name="DaoOperationFailureException">
+		<sequence>
+			<element minOccurs="0" name="message" type="string" />
+		</sequence>
+	</complexType>
+	
+	<element name="DataSourceAccessFailureDaoException"
+		type="tns:DataSourceAccessFailureDaoException" />
+	<complexType name="DataSourceAccessFailureDaoException">
+		<sequence>
+			<element minOccurs="0" name="message" type="string" />
+		</sequence>
+	</complexType>
+
+
+</schema>

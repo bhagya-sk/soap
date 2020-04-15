@@ -1,0 +1,47 @@
+<xs:schema xmlns:tns="http://webservice.practice.reactiveworks.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://webservice.practice.reactiveworks.com/" version="1.0">
+  <xs:element name="deleteStudent" type="tns:deleteStudent"/>
+  <xs:element name="deleteStudentResponse" type="tns:deleteStudentResponse"/>
+  <xs:element name="getStudents" type="tns:getStudents"/>
+  <xs:element name="getStudentsResponse" type="tns:getStudentsResponse"/>
+  <xs:element name="insertStudent" type="tns:insertStudent"/>
+  <xs:element name="insertStudentResponse" type="tns:insertStudentResponse"/>
+  <xs:complexType name="getStudents">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getStudentsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:student"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="student">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="dob" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="percentage" type="xs:double"/>
+      <xs:element name="rollNo" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertStudent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:student"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertStudentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="deleteStudent">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteStudentResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:element name="ParseException" type="tns:ParseException"/>
+  <xs:complexType name="ParseException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorOffset" type="xs:int"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

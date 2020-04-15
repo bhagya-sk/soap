@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://endpoint.employee.reactiveworks.com/"
+	xmlns:tns="http://endpoint.employee.reactiveworks.com/"
+	elementFormDefault="qualified">
+
+	<element name="getEmployees">
+		<complexType>
+			<sequence />
+		</complexType>
+	</element>
+
+	<element name="getEmployeesResponse">
+		<complexType>
+			<sequence>
+				<element name="response" type="tns:Employee"
+					maxOccurs="unbounded" minOccurs="0"></element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<element name="deleteEmployee">
+		<complexType>
+			<sequence>
+			  <element name="rollNo" type="int"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="deleteEmployeeResponse">
+		<complexType>
+			<sequence/>
+			
+		</complexType>
+	</element>
+	
+	<element name="insertEmployee">
+		<complexType>
+			<sequence>
+			 <element name="employee" type="tns:Employee"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<element name="insertEmployeeResponse">
+		<complexType>
+			<sequence>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Employee">
+		<sequence>
+			<element name="empName" type="string"></element>
+			<element name="empNo" type="int"></element>
+			<element name="salary" type="double"></element>
+		</sequence>
+	</complexType>
+
+</schema>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	<jaxws:endpoint
+		xmlns:tns="http://practice.reactiveworks.com/" id="adder"
+		implementor="com.reactiveworks.practice.Adder"
+		wsdlLocation="wsdl/adder.wsdl" endpointName="tns:AdderPort"
+		serviceName="tns:AdderService" address="/AdderPort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint
+		xmlns:tns="http://practice.reactiveworks.com/" id="studentservice"
+		implementor="com.reactiveworks.practice.StudentServiceImpl"
+		wsdlLocation="wsdl/studentservice.wsdl"
+		endpointName="tns:StudentServicePort"
+		serviceName="tns:StudentServiceService" address="/StudentServicePort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+	<jaxws:endpoint
+		xmlns:tns="http://endpoint.adder.reactiveworks.com/"
+		id="adderwebserviceport"
+		implementor="com.reactiveworks.adder.endpoint.AdderWebServicePortImpl"
+		wsdlLocation="wsdl/adder.wsdl" endpointName="tns:AdderWebServicePort"
+		serviceName="tns:AdderWebServiceService"
+		address="/AdderWebServicePort">
+		<jaxws:features>
+			<bean class="org.apache.cxf.feature.LoggingFeature" />
+		</jaxws:features>
+	</jaxws:endpoint>
+</beans>

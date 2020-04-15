@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EmployeesDataService" targetNamespace="http://repository.student.reactiveworks.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://repository.student.reactiveworks.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://repository.student.reactiveworks.com/" schemaLocation="StudentXMLSchema.xsd"/>
+		</schema>
+    <xsd:schema/>
+  </wsdl:types>
+  <wsdl:message name="getStudentsResponse">
+    <wsdl:part name="parameters" element="tns:getStudentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudents">
+    <wsdl:part name="parameters" element="tns:getStudents">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="StudentsData">
+    <wsdl:operation name="getStudents">
+      <wsdl:input name="getStudents" message="tns:getStudents">
+    </wsdl:input>
+      <wsdl:output name="getStudentsResponse" message="tns:getStudentsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StudentsDataServiceSoapBinding" type="tns:StudentsData">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getStudents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getStudents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStudentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StudentsDataService">
+    <wsdl:port name="StudentsDataPort" binding="tns:StudentsDataServiceSoapBinding">
+      <soap:address location="http://localhost:8080/StudentTopDownExample/services/StudentsDataPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="StuedntServiceService" targetNamespace="http://endpoint.practice.reactiveworks.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://endpoint.practice.reactiveworks.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://endpoint.practice.reactiveworks.com/" schemaLocation="studentwebservice_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getStudentsResponse">
+    <wsdl:part name="parameters" element="tns:getStudentsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DaoOperationFailureException">
+    <wsdl:part name="DaoOperationFailureException" element="tns:DaoOperationFailureException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getStudents">
+    <wsdl:part name="parameters" element="tns:getStudents">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="DataSourceAccessFailureDaoException">
+    <wsdl:part name="DataSourceAccessFailureDaoException" element="tns:DataSourceAccessFailureDaoException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="studentService">
+    <wsdl:operation name="getStudents">
+      <wsdl:input name="getStudents" message="tns:getStudents">
+    </wsdl:input>
+      <wsdl:output name="getStudentsResponse" message="tns:getStudentsResponse">
+    </wsdl:output>
+      <wsdl:fault name="DaoOperationFailureException" message="tns:DaoOperationFailureException">
+    </wsdl:fault>
+      <wsdl:fault name="DataSourceAccessFailureDaoException" message="tns:DataSourceAccessFailureDaoException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StuedntServiceServiceSoapBinding" type="tns:studentService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getStudents">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getStudents">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getStudentsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="DaoOperationFailureException">
+        <soap:fault name="DaoOperationFailureException" use="literal"/>
+      </wsdl:fault>
+      <wsdl:fault name="DataSourceAccessFailureDaoException">
+        <soap:fault name="DataSourceAccessFailureDaoException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StuedntServiceService">
+    <wsdl:port name="studentPort" binding="tns:StuedntServiceServiceSoapBinding">
+      <soap:address location="http://localhost:9090/studentPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

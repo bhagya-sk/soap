@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="EmployeeServiceImplService"
+	targetNamespace="http://service.employee.reactiveworks.com/"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:tns="http://service.employee.reactiveworks.com/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+	<wsdl:types>
+		<schema xmlns="http://www.w3.org/2001/XMLSchema">
+			<import namespace="http://service.employee.reactiveworks.com/"
+				schemaLocation="employeeserviceimpl_schema1.xsd" />
+		</schema>
+	</wsdl:types>
+	<wsdl:message name="deleteEmployeeResponse">
+		<wsdl:part name="parameters"
+			element="tns:deleteEmployeeResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="insertEmployee">
+		<wsdl:part name="parameters" element="tns:insertEmployee">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getEmployees">
+		<wsdl:part name="parameters" element="tns:getEmployees">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="deleteEmployee">
+		<wsdl:part name="parameters" element="tns:deleteEmployee">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="insertEmployeeResponse">
+		<wsdl:part name="parameters"
+			element="tns:insertEmployeeResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="getEmployeesResponse">
+		<wsdl:part name="parameters"
+			element="tns:getEmployeesResponse">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:portType name="EmployeeServiceImpl">
+		<wsdl:operation name="getEmployees">
+			<wsdl:input name="getEmployees" message="tns:getEmployees">
+			</wsdl:input>
+			<wsdl:output name="getEmployeesResponse"
+				message="tns:getEmployeesResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteEmployee">
+			<wsdl:input name="deleteEmployee"
+				message="tns:deleteEmployee">
+			</wsdl:input>
+			<wsdl:output name="deleteEmployeeResponse"
+				message="tns:deleteEmployeeResponse">
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="insertEmployee">
+			<wsdl:input name="insertEmployee"
+				message="tns:insertEmployee">
+			</wsdl:input>
+			<wsdl:output name="insertEmployeeResponse"
+				message="tns:insertEmployeeResponse">
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="EmployeeServiceImplServiceSoapBinding"
+		type="tns:EmployeeServiceImpl">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="getEmployees">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="getEmployees">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="getEmployeesResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="deleteEmployee">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="deleteEmployee">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="deleteEmployeeResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="insertEmployee">
+			<soap:operation soapAction="" style="document" />
+			<wsdl:input name="insertEmployee">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name="insertEmployeeResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="EmployeeServiceImplService">
+		<wsdl:port name="EmployeeServiceImplPort"
+			binding="tns:EmployeeServiceImplServiceSoapBinding">
+			<soap:address
+				location="http://localhost:8080/EmployeesServiceClient/services/EmployeeServiceImplPort" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProductWebServiceService" targetNamespace="http://service.productservice.reactiveworks.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.productservice.reactiveworks.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://service.productservice.reactiveworks.com/" schemaLocation="productwebservice_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getProducts">
+    <wsdl:part name="parameters" element="tns:getProducts">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductsResponse">
+    <wsdl:part name="parameters" element="tns:getProductsResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ParseException">
+    <wsdl:part name="ParseException" element="tns:ParseException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProductWebService">
+    <wsdl:operation name="getProducts">
+      <wsdl:input name="getProducts" message="tns:getProducts">
+    </wsdl:input>
+      <wsdl:output name="getProductsResponse" message="tns:getProductsResponse">
+    </wsdl:output>
+      <wsdl:fault name="ParseException" message="tns:ParseException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductWebServiceServiceSoapBinding" type="tns:ProductWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getProducts">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProducts">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProductsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="ParseException">
+        <soap:fault name="ParseException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProductWebServiceService">
+    <wsdl:port name="ProductWebServicePort" binding="tns:ProductWebServiceServiceSoapBinding">
+      <soap:address location="http://localhost:8080/ProductService/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

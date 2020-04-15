@@ -1,0 +1,11 @@
+com\reactiveworks\practice\webservice\jaxws\DeleteStudent.class
+com\reactiveworks\practice\model\Student.class
+com\reactiveworks\practice\webservice\jaxws\DeleteStudentResponse.class
+com\reactiveworks\practice\webservice\jaxws\InsertStudent.class
+com\reactiveworks\practice\webservice\jaxws\ParseExceptionBean.class
+com\reactiveworks\practice\webservice\StudentInfoWebService.class
+com\reactiveworks\practice\webservice\jaxws\GetStudents.class
+com\reactiveworks\practice\webservice\jaxws\InsertStudentResponse.class
+com\reactiveworks\practice\webservice\jaxws\GetStudentsResponse.class
+com\reactiveworks\practice\Test.class
+com\reactiveworks\practice\repository\StudentsInformation.class

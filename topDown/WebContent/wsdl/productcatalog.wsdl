@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="servicename" targetNamespace="http://mart.reactiveworks.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://mart.reactiveworks.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <import namespace="http://mart.reactiveworks.com/" schemaLocation="productcatalog_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="getProductByCategory">
+    <wsdl:part name="parameters" element="tns:getProductByCategory">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProduct">
+    <wsdl:part name="parameters" element="tns:addProduct">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductByCategoryResponse">
+    <wsdl:part name="parameters" element="tns:getProductByCategoryResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="addProductResponse">
+    <wsdl:part name="parameters" element="tns:addProductResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCategories">
+    <wsdl:part name="parameters" element="tns:getProductCategories">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProductCategoriesResponse">
+    <wsdl:part name="parameters" element="tns:getProductCategoriesResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="name">
+    <wsdl:operation name="getProductByCategory">
+      <wsdl:input name="getProductByCategory" message="tns:getProductByCategory">
+    </wsdl:input>
+      <wsdl:output name="getProductByCategoryResponse" message="tns:getProductByCategoryResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <wsdl:input name="addProduct" message="tns:addProduct">
+    </wsdl:input>
+      <wsdl:output name="addProductResponse" message="tns:addProductResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCategories">
+      <wsdl:input name="getProductCategories" message="tns:getProductCategories">
+    </wsdl:input>
+      <wsdl:output name="getProductCategoriesResponse" message="tns:getProductCategoriesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="servicenameSoapBinding" type="tns:name">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getProductByCategory">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProductByCategory">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProductByCategoryResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="addProduct">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="addProduct">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="addProductResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProductCategories">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getProductCategories">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProductCategoriesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="servicename">
+    <wsdl:port name="portname" binding="tns:servicenameSoapBinding">
+      <soap:address location="http://localhost:8080/topDown/services"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

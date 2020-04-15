@@ -1,0 +1,27 @@
+<xs:schema xmlns:tns="http://service.productservice.reactiveworks.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.productservice.reactiveworks.com/" version="1.0">
+  <xs:element name="getProducts" type="tns:getProducts"/>
+  <xs:element name="getProductsResponse" type="tns:getProductsResponse"/>
+  <xs:complexType name="getProducts">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getProductsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:product"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="manufecturedDt" type="xs:dateTime"/>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element minOccurs="0" name="productName" type="xs:string"/>
+      <xs:element minOccurs="0" name="productType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ParseException" type="tns:ParseException"/>
+  <xs:complexType name="ParseException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="errorOffset" type="xs:int"/>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

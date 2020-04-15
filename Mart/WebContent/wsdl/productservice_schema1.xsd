@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://service.mart.reactiveworks.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified"
+	targetNamespace="http://service.mart.reactiveworks.com/" version="1.0">
+	<xs:element name="addProduct" type="tns:addProduct" />
+	<xs:element name="addProductResponse"
+		type="tns:addProductResponse" />
+	<xs:element name="getProductCategories"
+		type="tns:getProductCategories" />
+	<xs:element name="getProductCategoriesResponse"
+		type="tns:getProductCategoriesResponse" />
+	<xs:element name="getProductsByCategory"
+		type="tns:getProductsByCategory" />
+	<xs:element name="getProductsByCategoryResponse"
+		type="tns:getProductsByCategoryResponse" />
+	<xs:complexType name="getProductCategories">
+		<xs:sequence />
+	</xs:complexType>
+	<xs:complexType name="getProductCategoriesResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="return" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addProduct">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="xs:string" />
+			<xs:element minOccurs="0" name="arg1" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="addProductResponse">
+		<xs:sequence>
+			<xs:element name="return" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getProductsByCategory">
+		<xs:sequence>
+			<xs:element minOccurs="0" name="arg0" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="getProductsByCategoryResponse">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="0"
+				name="return" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,64 @@
+<xs:schema xmlns:tns="http://service.productservice.reactiveworks.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://service.productservice.reactiveworks.com/" version="1.0">
+  <xs:element name="deleteProduct" type="tns:deleteProduct"/>
+  <xs:element name="deleteProductResponse" type="tns:deleteProductResponse"/>
+  <xs:element name="getProduct" type="tns:getProduct"/>
+  <xs:element name="getProductResponse" type="tns:getProductResponse"/>
+  <xs:element name="getProducts" type="tns:getProducts"/>
+  <xs:element name="getProductsResponse" type="tns:getProductsResponse"/>
+  <xs:element name="insertProduct" type="tns:insertProduct"/>
+  <xs:element name="insertProductResponse" type="tns:insertProductResponse"/>
+  <xs:complexType name="insertProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:product"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="manufecturedDt" type="xs:dateTime"/>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element minOccurs="0" name="productName" type="xs:string"/>
+      <xs:element minOccurs="0" name="productType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="insertProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getProducts">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getProductsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:product"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteProduct">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="deleteProductResponse">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="getProduct">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getProductResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:product"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnableToReadPropertyFileException" type="tns:UnableToReadPropertyFileException"/>
+  <xs:complexType name="UnableToReadPropertyFileException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DataBaseAccessFailureException" type="tns:DataBaseAccessFailureException"/>
+  <xs:complexType name="DataBaseAccessFailureException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,53 @@
+<xs:schema xmlns:tns="http://service.employee.reactiveworks.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="unqualified" targetNamespace="http://service.employee.reactiveworks.com/" version="1.0">
+
+  <xs:element name="deleteEmployee" type="tns:deleteEmployee"/>
+
+  <xs:element name="deleteEmployeeResponse" type="tns:deleteEmployeeResponse"/>
+
+  <xs:element name="getEmployees" type="tns:getEmployees"/>
+
+  <xs:element name="getEmployeesResponse" type="tns:getEmployeesResponse"/>
+
+  <xs:element name="insertEmployee" type="tns:insertEmployee"/>
+
+  <xs:element name="insertEmployeeResponse" type="tns:insertEmployeeResponse"/>
+
+  <xs:complexType name="getEmployees">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getEmployeesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="return" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employee">
+    <xs:sequence>
+      <xs:element name="empNo" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element name="salary" type="xs:double"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteEmployee">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="deleteEmployeeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="insertEmployee">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="tns:employee"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="insertEmployeeResponse">
+    <xs:sequence/>
+  </xs:complexType>
+
+</xs:schema>
